@@ -1,65 +1,117 @@
 import Head from 'next/head'
+import { useState } from 'react'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
+  const [zIndex1, setZIndex] = useState(["auto", "auto", "auto", "auto", "auto"]);
+  const click1 =()=>{
+    const arr = zIndex1;
+    if(arr[0] === "auto"){
+      arr[0] = 1
+    }else{
+      arr[0] = "auto"
+      arr[4] = "auto"
+    }
+    setZIndex([...arr]);
+  }
+  const click2 =()=>{
+    const arr = zIndex1; 
+    if(arr[1] === "auto"){
+      arr[0] = 1;
+      arr[1] = 1; 
+    }
+    else{
+      arr[0] = "auto"
+      arr[1] = "auto"
+      arr[4] = "auto"
+    }
+    setZIndex([...arr]);
+  }
+  const click3 =()=>{
+    const arr = zIndex1;
+    if(arr[2] === "auto"){
+      arr[2] = 1;
+    }else{
+      arr[2] = "auto";
+      arr[4] = "auto"
+    }
+    setZIndex([...arr]);
+  }
+
+
+  const click4 =()=>{
+    const arr = zIndex1;
+    if(arr[3] === "auto"){
+      arr[2] = 1;
+      arr[3] = 1; 
+      arr[4] = "auto"
+    }
+    else{
+      arr[2] = "auto"
+      arr[3] = "auto"
+      arr[4] = "auto"
+    }
+    setZIndex([...arr]);
+  }
+  const click5 =()=>{
+    const arr = zIndex1;
+    if(arr[4] === "auto"){
+      arr[4] = -1;
+      arr[0] =1;
+      arr[1] =1;
+      arr[2] =1;
+      arr[3] =1;
+    }
+    else{
+      arr[4] = "auto"
+    }
+    setZIndex([...arr]);
+  }
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Box Model</title>
       </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
+      
+        <div className = {styles.main1}>
+          <div 
+            id={styles.box} 
+            style={{zIndex: `${zIndex1[0]}`}}
+            onClick={click1}
           >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
+            1
+          </div>
+          <div
+            id={styles.box}
+            style={{zIndex: `${zIndex1[1]}`}}
+            onClick={click2}
           >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+            2
+          </div>
         </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+        <div
+          id={styles.box5}
+          style={{zIndex: `${zIndex1[4]}`}}
+          onClick={click5}
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+          5
+        </div>
+        <div className = {styles.main2} >
+          <div
+            id={styles.box}
+            style={{zIndex: `${zIndex1[2]}`}}
+            onClick={click3}
+          >
+            3
+          </div>
+          <div
+            id={styles.box}
+            style={{zIndex: `${zIndex1[3]}`}}
+            onClick={click4}
+          >
+            4
+          </div>
+        </div>    
     </div>
   )
 }
