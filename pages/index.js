@@ -10,7 +10,6 @@ export default function Home() {
       arr[0] = 1
     }else{
       arr[0] = "auto"
-      arr[4] = "auto"
     }
     setZIndex([...arr]);
   }
@@ -23,7 +22,6 @@ export default function Home() {
     else{
       arr[0] = "auto"
       arr[1] = "auto"
-      arr[4] = "auto"
     }
     setZIndex([...arr]);
   }
@@ -33,7 +31,6 @@ export default function Home() {
       arr[2] = 1;
     }else{
       arr[2] = "auto";
-      arr[4] = "auto"
     }
     setZIndex([...arr]);
   }
@@ -44,26 +41,21 @@ export default function Home() {
     if(arr[3] === "auto"){
       arr[2] = 1;
       arr[3] = 1; 
-      arr[4] = "auto"
     }
     else{
       arr[2] = "auto"
       arr[3] = "auto"
-      arr[4] = "auto"
     }
     setZIndex([...arr]);
   }
   const click5 =()=>{
     const arr = zIndex1;
     if(arr[4] === "auto"){
-      arr[4] = -1;
-      arr[0] =1;
-      arr[1] =1;
-      arr[2] =1;
-      arr[3] =1;
+      arr.fill(1);
+      arr[4]= 0;
     }
     else{
-      arr[4] = "auto"
+      arr.fill("auto");
     }
     setZIndex([...arr]);
   }
